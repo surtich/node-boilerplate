@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "author": "jperez@avirato.com",
   "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
   "dependencies": {
     "express": "^4.16.2"
   },
