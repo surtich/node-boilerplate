@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  hello:
+    container_name: apirato-hello
+    working_dir: /usr/src/app
+    build: ./services/hello
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - NODE_ENV=development
+    volumes:
+      - ./services/hello:/usr/src/app
+      - ./bin:/usr/src/app/bin
+      - /usr/src/app/node_modules
+    networks:
+      - base-network
+    command: npm start
+networks:
+  base-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24

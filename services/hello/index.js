@@ -1,1 +1,1 @@
-module.exports.API = require('./helloAPI')
+module.exports.API = require('./entry-points/helloAPI')
