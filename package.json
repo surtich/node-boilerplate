@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "configurationManager": "file:libraries/configurationManager",
+    "errorManagement": "file:libraries/errorManagement",
     "express": "^4.16.2",
     "logger": "file:libraries/logger"
   },
