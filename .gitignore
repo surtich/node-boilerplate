@@ -1,2 +1,4 @@
 node_modules
-logs/*
+**/logs/*
+services/**/package.json
+services/**/config*

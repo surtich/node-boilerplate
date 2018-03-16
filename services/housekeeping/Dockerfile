@@ -6,4 +6,4 @@ COPY . /usr/src/app
 
 RUN cd /usr/src/app
 
-CMD npm start
+CMD ["npm", "start"]

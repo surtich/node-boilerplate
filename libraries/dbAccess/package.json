@@ -1,0 +1,12 @@
+{
+  "name": "dbAccess",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./knex",
+  "dependencies": {
+    "configurationManager": "*",
+    "knex": "^0.14.4",
+    "logger": "*",
+    "mysql": "github:mysqljs/mysql"
+  }
+}

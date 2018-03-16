@@ -1,12 +1,16 @@
 'use strict'
 
+let configMode = 'development'
+
 if (!process.env.NODE_ENV) {
   process.stdout.write(
     'Config provider might face difficulties since process.env.NODE_ENV was not defined'
   )
+} else {
+  configMode = process.env.NODE_ENV
 }
 
-const mainConfiguration = require('../../config.development')
+const mainConfiguration = require(`../../config/${configMode}`)
 
 let ConfigurationManager = new Proxy(mainConfiguration, {
   get (target, property) {

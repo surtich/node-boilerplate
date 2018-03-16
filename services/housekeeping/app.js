@@ -1,7 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const helloComponent = require('./services/hello').API
-const housekeepingComponent = require('./services/housekeeping').API
+const housekeepingComponent = require('./index').API
 const errorManagement = require('errorManagement')
 
 console.log(`App is currently starting`)
@@ -14,8 +13,7 @@ app.use(
 )
 app.use(bodyParser.json())
 
-app.use('/api/hello', helloComponent)
-app.use('/api/houseKeeping', housekeepingComponent)
+app.use('/api/housekeeping', housekeepingComponent)
 errorManagement.handling.registerAndHandleAllErrors(app)
 
 module.exports = app

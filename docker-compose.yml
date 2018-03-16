@@ -13,10 +13,46 @@ services:
     volumes:
       - ./services/hello:/usr/src/app
       - ./bin:/usr/src/app/bin
-      - /usr/src/app/node_modules
+      - ./libraries:/usr/src/app/libraries
+      - ./node_modules:/usr/src/app/node_modules
+      - ./package.json:/usr/src/app/package.json
     networks:
       - base-network
     command: npm start
+  housekeeping:
+    container_name: apirato-housekeeping
+    restart: on-failure
+    depends_on:
+      - mysql
+    working_dir: /usr/src/app
+    build: ./services/housekeeping
+    ports:
+      - "8081:8081"
+    environment:
+      - PORT=8081
+      - NODE_ENV=development
+    volumes:
+      - ./services/housekeeping:/usr/src/app
+      - ./bin:/usr/src/app/bin
+      - ./libraries:/usr/src/app/libraries
+      - ./node_modules:/usr/src/app/node_modules
+      - ./config:/usr/src/app/config
+      - ./package.json:/usr/src/app/package.json
+    networks:
+      - base-network
+    command: ["npm", "start"]
+  mysql:
+    container_name: apirato-mysql
+    image: mysql:5
+    restart: on-failure
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - base-network
 networks:
   base-network:
     driver: bridge
@@ -24,3 +60,5 @@ networks:
       driver: default
       config:
         - subnet: 172.16.238.0/24
+volumes:
+  db-data:

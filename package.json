@@ -7,10 +7,19 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "body-parser": "^1.18.2",
     "configurationManager": "file:libraries/configurationManager",
+    "dbAccess": "file:libraries/dbAccess",
+    "deep-extend": "^0.5.0",
     "errorManagement": "file:libraries/errorManagement",
     "express": "^4.16.2",
-    "logger": "file:libraries/logger"
+    "install": "^0.10.4",
+    "jsonschema": "^1.2.2",
+    "knex": "^0.14.4",
+    "logger": "file:libraries/logger",
+    "mysql": "github:mysqljs/mysql",
+    "npm": "^5.7.1",
+    "winston": "^2.4.1"
   },
   "devDependencies": {
     "eslint": "^4.18.2",
