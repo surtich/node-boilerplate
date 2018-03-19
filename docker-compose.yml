@@ -40,7 +40,7 @@ services:
       - ./package.json:/usr/src/app/package.json
     networks:
       - base-network
-    command: ["npm", "start"]
+    command: ["npm", "run", "dev"]
   mysql:
     container_name: apirato-mysql
     image: mysql:5
