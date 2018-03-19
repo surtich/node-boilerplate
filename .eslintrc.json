@@ -18,7 +18,11 @@
   "globals": {
     "document": false,
     "navigator": false,
-    "window": false
+    "window": false,
+    "jest": true,
+    "describe": true,
+    "test": true,
+    "expect": true
   },
 
   "rules": {
